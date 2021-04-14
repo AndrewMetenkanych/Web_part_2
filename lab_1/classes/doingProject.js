@@ -18,7 +18,7 @@ const deleteProject = (indexArr) => {
         DoingProjects.splice(indexArr, indexArr + 1);
     } else {
         DoingProjects.splice(indexArr, indexArr);
-    } 
+    }
 };
 
 addProject('IT');

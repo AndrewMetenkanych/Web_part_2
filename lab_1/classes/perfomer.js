@@ -12,7 +12,7 @@ const addPerfomer = (perfName, position) => {
 
 const patchPerfomer = (indexArr, perfName, position) => {
     Perfomers[indexArr].perfName = perfName;
-    Perfomers[indexArr].position = position; 
+    Perfomers[indexArr].position = position;
 };
 
 const deletePerfomer = (indexArr) => {
@@ -20,7 +20,7 @@ const deletePerfomer = (indexArr) => {
         Perfomers.splice(indexArr, indexArr + 1);
     } else {
         Perfomers.splice(indexArr, indexArr);
-    } 
+    }
 };
 
 addPerfomer('Colian', 'Engineer');

@@ -12,7 +12,7 @@ const addCustomer = (name, phone) => {
 
 const patchCustomer = function (indexArr, name, phone) {
     Customers[indexArr].name = name;
-    Customers[indexArr].phone = phone; 
+    Customers[indexArr].phone = phone;
 };
 
 const deleteCustomer = (indexArr) => {
@@ -20,12 +20,12 @@ const deleteCustomer = (indexArr) => {
         Customers.splice(indexArr, indexArr + 1);
     } else {
         Customers.splice(indexArr, indexArr);
-    } 
+    }
 };
 
 const findCustomer = (name) => {
     const res = Customers.find(el => el.name === name);
-    console.log(res);    
+    console.log(res);
 };
 
 addCustomer('DSS', '3123');

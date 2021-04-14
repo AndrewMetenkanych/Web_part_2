@@ -1,18 +1,25 @@
+class Perfomer {
+    constructor(perfName, position) {
+        this.perfName = perfName;
+        this.position = position;
+    }
+}
 class Project {
-    constructor(projName, owner) {
+    constructor(projName, owner, performer) {
         this.projName = projName;
         this.owner = owner;
+        this.performer = performer;
     }
 }
 
 let Projects = [];
-const addProject = (projName, owner) => {
-    return Projects.push(new Project(projName, owner));
+const addProject = (projName, owner, performer) => {
+    return Projects.push(new Project(projName, owner, performer));
 };
 
 const patchProject = (indexArr, projName, owner) => {
     Projects[indexArr].projName = projName;
-    Projects[indexArr].owner = owner; 
+    Projects[indexArr].owner = owner;
 };
 
 const deleteProject = (indexArr) => {
@@ -20,15 +27,26 @@ const deleteProject = (indexArr) => {
         Projects.splice(indexArr, indexArr + 1);
     } else {
         Projects.splice(indexArr, indexArr);
-    } 
+    }
 };
 
-addProject('IT', 'Dan');
-addProject('Dungeon', 'Pja');
-addProject('Bull', 'HUGO');
+const findPerfProj = (name) => {
+    const res = Projects.filter(el => el.performer.perfName === name);
+    console.log(res);
+};
+
+
+let perf = new Perfomer('Colian', 'Engineer');
+
+addProject('IT', 'Dan', perf);
+addProject('Dungeon', 'Pja', perf);
+addProject('Bull', 'HUGO', perf);
+
 patchProject(1, 'Cool', 'Dog');
+
 deleteProject(2);
 
-console.log(Projects);
+findPerfProj('Colian')
+
 
 module.exports = Project;
