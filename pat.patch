@@ -1,0 +1,173 @@
+diff --git a/lab_1/1-6/factorial_task3.js b/lab_1/1-6/factorial_task3.js
+index 75503e6..db810bf 100644
+--- a/lab_1/1-6/factorial_task3.js
++++ b/lab_1/1-6/factorial_task3.js
+@@ -4,7 +4,7 @@ const factorial_func = (num) => {
+         return 1;
+     } else {
+         return num * factorial_func(num - 1);
+-    }   
++    }
+ };
+ 
+ module.exports = factorial_func ;
+\ No newline at end of file
+diff --git a/lab_1/1-6/findMaxDate_task5.js b/lab_1/1-6/findMaxDate_task5.js
+index b0895fd..4ac0565 100644
+--- a/lab_1/1-6/findMaxDate_task5.js
++++ b/lab_1/1-6/findMaxDate_task5.js
+@@ -6,7 +6,7 @@ const findMaxDate = (arr) => {
+ const getDateArray = (start, end) => {
+ 
+     let arr = [];
+-  
++
+     while (start <= end) {
+       arr.push(new Date(start));
+       start.setDate(start.getDate() + 1);
+diff --git a/lab_1/1-6/findStr_task2.js b/lab_1/1-6/findStr_task2.js
+index 8a2dd31..bd847ad 100644
+--- a/lab_1/1-6/findStr_task2.js
++++ b/lab_1/1-6/findStr_task2.js
+@@ -6,11 +6,9 @@ module.exports =  (str1, strObj) => {
+     for (let i = 0; i <= str1.length; i++) {
+         if (str1[i] == strObj[i] ) {
+             console.log(`Task 2\nSuccess :) "${str1}" has been found!`);
+-            
+         } else {
+             console.log('Fail :(');
+         }
+         return strObj;
+     }
+-    
+ };
+diff --git a/lab_1/classes/customer.js b/lab_1/classes/customer.js
+index 8b4c5fc..a1fd3a7 100644
+--- a/lab_1/classes/customer.js
++++ b/lab_1/classes/customer.js
+@@ -12,7 +12,7 @@ const addCustomer = (name, phone) => {
+ 
+ const patchCustomer = function (indexArr, name, phone) {
+     Customers[indexArr].name = name;
+-    Customers[indexArr].phone = phone; 
++    Customers[indexArr].phone = phone;
+ };
+ 
+ const deleteCustomer = (indexArr) => {
+@@ -20,12 +20,12 @@ const deleteCustomer = (indexArr) => {
+         Customers.splice(indexArr, indexArr + 1);
+     } else {
+         Customers.splice(indexArr, indexArr);
+-    } 
++    }
+ };
+ 
+ const findCustomer = (name) => {
+     const res = Customers.find(el => el.name === name);
+-    console.log(res);    
++    console.log(res);
+ };
+ 
+ addCustomer('DSS', '3123');
+diff --git a/lab_1/classes/doingProject.js b/lab_1/classes/doingProject.js
+index bc7136a..ce46d16 100644
+--- a/lab_1/classes/doingProject.js
++++ b/lab_1/classes/doingProject.js
+@@ -18,7 +18,7 @@ const deleteProject = (indexArr) => {
+         DoingProjects.splice(indexArr, indexArr + 1);
+     } else {
+         DoingProjects.splice(indexArr, indexArr);
+-    } 
++    }
+ };
+ 
+ addProject('IT');
+diff --git a/lab_1/classes/perfomer.js b/lab_1/classes/perfomer.js
+index 24ebdb4..098715d 100644
+--- a/lab_1/classes/perfomer.js
++++ b/lab_1/classes/perfomer.js
+@@ -12,7 +12,7 @@ const addPerfomer = (perfName, position) => {
+ 
+ const patchPerfomer = (indexArr, perfName, position) => {
+     Perfomers[indexArr].perfName = perfName;
+-    Perfomers[indexArr].position = position; 
++    Perfomers[indexArr].position = position;
+ };
+ 
+ const deletePerfomer = (indexArr) => {
+@@ -20,7 +20,7 @@ const deletePerfomer = (indexArr) => {
+         Perfomers.splice(indexArr, indexArr + 1);
+     } else {
+         Perfomers.splice(indexArr, indexArr);
+-    } 
++    }
+ };
+ 
+ addPerfomer('Colian', 'Engineer');
+diff --git a/lab_1/classes/project.js b/lab_1/classes/project.js
+index 40ad715..693ad9c 100644
+--- a/lab_1/classes/project.js
++++ b/lab_1/classes/project.js
+@@ -1,18 +1,25 @@
++class Perfomer {
++    constructor(perfName, position) {
++        this.perfName = perfName;
++        this.position = position;
++    }
++}
+ class Project {
+-    constructor(projName, owner) {
++    constructor(projName, owner, performer) {
+         this.projName = projName;
+         this.owner = owner;
++        this.performer = performer;
+     }
+ }
+ 
+ let Projects = [];
+-const addProject = (projName, owner) => {
+-    return Projects.push(new Project(projName, owner));
++const addProject = (projName, owner, performer) => {
++    return Projects.push(new Project(projName, owner, performer));
+ };
+ 
+ const patchProject = (indexArr, projName, owner) => {
+     Projects[indexArr].projName = projName;
+-    Projects[indexArr].owner = owner; 
++    Projects[indexArr].owner = owner;
+ };
+ 
+ const deleteProject = (indexArr) => {
+@@ -20,15 +27,26 @@ const deleteProject = (indexArr) => {
+         Projects.splice(indexArr, indexArr + 1);
+     } else {
+         Projects.splice(indexArr, indexArr);
+-    } 
++    }
++};
++
++const findPerfProj = (name) => {
++    const res = Projects.filter(el => el.performer.perfName === name);
++    console.log(res);
+ };
+ 
+-addProject('IT', 'Dan');
+-addProject('Dungeon', 'Pja');
+-addProject('Bull', 'HUGO');
++
++let perf = new Perfomer('Colian', 'Engineer');
++
++addProject('IT', 'Dan', perf);
++addProject('Dungeon', 'Pja', perf);
++addProject('Bull', 'HUGO', perf);
++
+ patchProject(1, 'Cool', 'Dog');
++
+ deleteProject(2);
+ 
+-console.log(Projects);
++findPerfProj('Colian')
++
+ 
+ module.exports = Project;
+\ No newline at end of file

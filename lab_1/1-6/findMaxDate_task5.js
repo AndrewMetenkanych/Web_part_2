@@ -6,7 +6,7 @@ const findMaxDate = (arr) => {
 const getDateArray = (start, end) => {
 
     let arr = [];
-  
+
     while (start <= end) {
       arr.push(new Date(start));
       start.setDate(start.getDate() + 1);

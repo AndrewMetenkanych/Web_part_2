@@ -4,7 +4,7 @@ const factorial_func = (num) => {
         return 1;
     } else {
         return num * factorial_func(num - 1);
-    }   
+    }
 };
 
 module.exports = factorial_func ;

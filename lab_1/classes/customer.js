@@ -29,11 +29,11 @@ const findCustomer = (name) => {
 };
 
 addCustomer('DSS', '3123');
-addCustomer('Olya', '45544232');
+addCustomer('Olya', '455442');
 addCustomer('Kola', '123321');
 patchCustomer(1, 'Andrew', '12312');
 /*deleteCustomer(0);*/
-findCustomer('Andrew');
+findCustomer('DSS');
 
 console.log(Customers);
 
